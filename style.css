@@ -1,0 +1,523 @@
+/* Import Poppins font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Reset default spacing and apply global font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Default link styling */
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Navigation bar styling */
+.navbar {
+  position: fixed; /* Sticks to top of viewport */
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 25px 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100; /* Ensures navbar stays above other content */
+  visibility: hidden;
+  opacity: 0;
+  animation: show-content 1.5s linear forwards;
+  animation-delay: 1.2s;
+}
+
+/* Fade-in animation for navbar and sections */
+@keyframes show-content {
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* Logo styling */
+.navbar .logo {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Navigation list layout */
+.navbar ul {
+  display: flex;
+}
+
+/* Navigation list items */
+.navbar ul li {
+  list-style: none;
+  margin-left: 35px;
+}
+
+/* Navigation links */
+.navbar ul li a {
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+/* Hover and active link color */
+.navbar ul li:hover a,
+.navbar ul li.active a {
+  color: aqua;
+}
+
+/* Enables smooth scrolling between anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevents navbar from overlapping Home section */
+#home {
+  scroll-margin-top: 100px;
+}
+
+/* Home text block layout */
+.home-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* Home section layout and animation */
+.home-info {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  height: 100vh;
+  padding: 60px 9% 0;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  animation: show-content 1.5s linear forwards;
+  animation-delay: 1.6s;
+}
+
+/* Home heading styles */
+.home-info h1 {
+  font-size: 55px;
+}
+
+.home-info h2 {
+  color: white;
+  font-size: 32px;
+  margin-top: -10px;
+}
+
+/* Outline effect for span inside h2 */
+.home-info h2 span {
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 1px aqua;
+}
+
+/* Home paragraph styling */
+.home-info p {
+  font-size: 16px;
+  margin: 10px 0 25px;
+}
+
+/* Button and social icon container */
+.home-info .btn-sci {
+  display: flex;
+  align-items: center;
+}
+
+/* Social icons spacing */
+.home-info .btn-sci .sci {
+  margin-left: 20px;
+}
+
+/* Social icon styling */
+.home-info .btn-sci .sci a {
+  display: inline-flex;
+  padding: 8px;
+  border: 2px solid aqua;
+  border-radius: 50%;
+  font-size: 20px;
+  color: aqua;
+  margin: 0 8px;
+}
+
+/* Social icon hover effect */
+.home-info .btn-sci .sci a:hover {
+  background: aqua;
+  color: #1f242d;
+  box-shadow: 0 0 10px aqua;
+}
+
+/* Circular image container */
+.home-img .img-box {
+  position: relative;
+  width: 32vw;
+  height: 32vw;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Rotating border animation layers */
+.home-img .img-box::before,
+.home-img .img-box::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: conic-gradient(transparent, transparent, transparent, aqua);
+  transform: rotate(0deg);
+  animation: rotate-border 10s linear infinite;
+}
+
+/* Offset second layer for continuous rotation */
+.home-img .img-box::after {
+  animation-delay: -5s;
+}
+
+/* Rotation animation keyframes */
+@keyframes rotate-border {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inner image styling */
+.home-img .img-box .img-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #1f242d;
+  border-radius: 50%;
+  border: 1px solid #1f242d;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Profile image inside circle */
+.home-img .img-box .img-item img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* General section styling */
+section {
+  padding: 80px 9%;
+  background-color: #1f242d;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  animation: show-content 1.5s linear forwards;
+  animation-delay: 1.8s;
+}
+
+/* Section headings */
+section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: aqua;
+  text-align: center;
+}
+
+/* About section paragraph styling */
+.about-info p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Skills grid layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Individual skill card styling */
+.skill-item {
+  background: #323946;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+
+/* Skill icon styling */
+.skill-item i {
+  font-size: 24px;
+  color: aqua;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Skill card hover effect */
+.skill-item:hover {
+  border-color: aqua;
+  transform: translateY(-5px);
+}
+
+/* Portfolio project card styling */
+.project-card {
+  background: #323946;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+
+/* Project title */
+.project-card h3 {
+  font-size: 22px;
+  color: aqua;
+  margin-bottom: 10px;
+}
+
+/* Project description */
+.project-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Button spacing inside project card */
+.project-card .btn {
+  margin-top: 10px;
+}
+
+/* Project card hover effect */
+.project-card:hover {
+  border-color: aqua;
+  transform: translateY(-5px);
+}
+
+/* Contact section intro text */
+.contact p {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Contact form layout */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input and textarea styling */
+.contact input,
+.contact textarea {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #323946;
+  background: #1f242d;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+/* Focus effect for form fields */
+.contact input:focus,
+.contact textarea:focus {
+  border-color: aqua;
+  outline: none;
+}
+
+/* Center the submit button */
+.contact button {
+  align-self: center;
+}
+
+/* Wrapper for contact form and social icons */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+/* Responsive form layout */
+.contact form {
+  flex: 1 1 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Social icons block */
+.social-icons {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+/* Social icons heading */
+.social-icons p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Individual social icon styling */
+.social-icons a {
+  display: inline-block;
+  margin: 10px;
+  font-size: 28px;
+  color: aqua;
+  transition: 0.3s;
+}
+
+/* Hover effect for social media icons */
+.social-icons a:hover {
+  color: white;
+}
+
+/* Reusable button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  background: aqua;
+  border: 2px solid aqua;
+  border-radius: 40px;
+  box-shadow: 0 0 10px aqua;
+  font-size: 16px;
+  color: #1f242d;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background: transparent;
+  color: aqua;
+  box-shadow: none;
+}
+
+/* Background animation container */
+.bars-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: -1;
+}
+
+/* Individual animated bars */
+.bars-animation .bar {
+  width: 100%;
+  height: 100%;
+  background: #1f242d;
+  transform: translateY(-100%);
+  animation: show-bars 0.5s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* Keyframes for bar animation */
+@keyframes show-bars {
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* Footer container */
+.footer {
+  background-color: #1f242d;
+  padding: 40px 9%;
+  text-align: center;
+  color: white;
+  border-top: 1px solid #323946;
+}
+
+/* Footer content layout */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Footer navigation menu */
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu a {
+  color: aqua;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.footer-menu a:hover {
+  color: white;
+}
+
+/* Footer social icons */
+.footer-social a {
+  font-size: 24px;
+  margin: 0 10px;
+  color: aqua;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: white;
+}
+
+/* Footer copyright note */
+.footer-note {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: aqua;
+  color: #1f242d;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 0 10px aqua;
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.back-to-top:hover {
+  background: white;
+  color: aqua;
+}
